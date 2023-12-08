@@ -7372,3 +7372,75 @@ Caused by: org.apache.maven.model.building.ModelBuildingException: 1 problem was
 2023-12-08 13:58:21,814 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2023-12-08 13:58:21,818 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2023-12-08 13:58:21,820 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\zacha\OneDrive\Documents\MyWorkspace\BookService\src\test\resources
+2023-12-08 14:08:22,786 [Worker-59: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-12-08 14:08:22,786 [Worker-59: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-12-08 14:08:22,788 [Worker-59: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\zacha\OneDrive\Documents\MyWorkspace\ZacharyHavers_301202845_Assignment_4\src\test\resources
+2023-12-08 14:09:11,013 [Worker-71: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-12-08 14:09:11,021 [Worker-71: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-12-08 14:09:11,023 [Worker-71: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\zacha\OneDrive\Documents\MyWorkspace\ZacharyHavers_301202845_Assignment_4\src\test\resources
+2023-12-08 14:09:18,037 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-12-08 14:09:18,040 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-12-08 14:09:18,042 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\zacha\OneDrive\Documents\MyWorkspace\ZacharyHavers_301202845_Assignment_4\src\test\resources
+2023-12-08 14:19:11,781 [Worker-78: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-12-08 14:19:11,787 [Worker-78: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-12-08 14:19:11,789 [Worker-78: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\zacha\OneDrive\Documents\MyWorkspace\BookService\src\test\resources
+2023-12-08 14:22:18,457 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-12-08 14:22:18,461 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-12-08 14:22:18,462 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\zacha\OneDrive\Documents\MyWorkspace\CustomerService\src\test\resources
+2023-12-08 14:22:27,953 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-12-08 14:22:27,957 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-12-08 14:22:27,959 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\zacha\OneDrive\Documents\MyWorkspace\TransactionService\src\test\resources
+2023-12-08 14:30:01,653 [Worker-84: Import Getting Started Content] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.frontend:FrontEndMVC:0.0.1-SNAPSHOT @ C:\Users\zacha\OneDrive\Documents\MyWorkspace\FrontEndMVC\pom.xml.
+2023-12-08 14:30:01,952 [Worker-84: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /FrontEndMVC/src/main/java
+2023-12-08 14:30:01,952 [Worker-84: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /FrontEndMVC/src/main/resources
+2023-12-08 14:30:01,958 [Worker-84: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /FrontEndMVC/src/main/resources
+2023-12-08 14:30:01,963 [Worker-84: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /FrontEndMVC/src/test/java
+2023-12-08 14:30:01,963 [Worker-84: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /FrontEndMVC/src/test/resources
+2023-12-08 14:30:02,169 [Worker-84: Import Getting Started Content] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 0 sec
+2023-12-08 14:30:02,170 [Worker-84: Import Getting Started Content] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2023-12-08 14:30:02,304 [Worker-84: Import Getting Started Content] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.frontend:FrontEndMVC:0.0.1-SNAPSHOT @ C:\Users\zacha\OneDrive\Documents\MyWorkspace\FrontEndMVC\pom.xml.
+2023-12-08 14:30:02,632 [Worker-84: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /FrontEndMVC/src/main/java
+2023-12-08 14:30:02,632 [Worker-84: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /FrontEndMVC/src/main/resources
+2023-12-08 14:30:02,632 [Worker-84: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /FrontEndMVC/src/main/resources
+2023-12-08 14:30:02,632 [Worker-84: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /FrontEndMVC/src/test/java
+2023-12-08 14:30:02,632 [Worker-84: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /FrontEndMVC/src/test/resources
+2023-12-08 14:30:02,816 [Worker-84: Import Getting Started Content] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2023-12-08 14:30:03,210 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-12-08 14:30:03,219 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-12-08 14:30:03,221 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\zacha\OneDrive\Documents\MyWorkspace\FrontEndMVC\src\test\resources
+2023-12-08 14:30:50,281 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-12-08 14:30:50,282 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-12-08 14:30:50,285 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\zacha\OneDrive\Documents\MyWorkspace\FrontEndMVC\src\test\resources
+2023-12-08 14:33:16,188 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-12-08 14:33:16,188 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-12-08 14:33:16,191 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\zacha\OneDrive\Documents\MyWorkspace\FrontEndMVC\src\test\resources
+2023-12-08 14:35:36,770 [Worker-80: Import Getting Started Content] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.frontend:FrontEndMVC:0.0.1-SNAPSHOT @ C:\Users\zacha\OneDrive\Documents\MyWorkspace\FrontEndMVC\pom.xml.
+2023-12-08 14:35:36,978 [Worker-80: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /FrontEndMVC/src/main/java
+2023-12-08 14:35:36,978 [Worker-80: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /FrontEndMVC/src/main/resources
+2023-12-08 14:35:36,983 [Worker-80: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /FrontEndMVC/src/main/resources
+2023-12-08 14:35:36,984 [Worker-80: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /FrontEndMVC/src/test/java
+2023-12-08 14:35:36,984 [Worker-80: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /FrontEndMVC/src/test/resources
+2023-12-08 14:35:37,130 [Worker-80: Import Getting Started Content] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 0 sec
+2023-12-08 14:35:37,131 [Worker-80: Import Getting Started Content] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2023-12-08 14:35:37,299 [Worker-80: Import Getting Started Content] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.frontend:FrontEndMVC:0.0.1-SNAPSHOT @ C:\Users\zacha\OneDrive\Documents\MyWorkspace\FrontEndMVC\pom.xml.
+2023-12-08 14:35:37,517 [Worker-80: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /FrontEndMVC/src/main/java
+2023-12-08 14:35:37,517 [Worker-80: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /FrontEndMVC/src/main/resources
+2023-12-08 14:35:37,518 [Worker-80: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /FrontEndMVC/src/main/resources
+2023-12-08 14:35:37,518 [Worker-80: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /FrontEndMVC/src/test/java
+2023-12-08 14:35:37,518 [Worker-80: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /FrontEndMVC/src/test/resources
+2023-12-08 14:35:37,662 [Worker-80: Import Getting Started Content] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2023-12-08 14:35:37,911 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-12-08 14:35:37,919 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-12-08 14:35:37,921 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\zacha\OneDrive\Documents\MyWorkspace\FrontEndMVC\src\test\resources
+2023-12-08 14:35:56,060 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-12-08 14:35:56,062 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-12-08 14:35:56,064 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\zacha\OneDrive\Documents\MyWorkspace\FrontEndMVC\src\test\resources
+2023-12-08 14:36:00,348 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-12-08 14:36:00,349 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-12-08 14:36:00,351 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\zacha\OneDrive\Documents\MyWorkspace\FrontEndMVC\src\test\resources
+2023-12-08 14:37:25,662 [Worker-88: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-12-08 14:37:25,662 [Worker-88: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-12-08 14:37:25,665 [Worker-88: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\zacha\OneDrive\Documents\MyWorkspace\FrontEndMVC\src\test\resources
+2023-12-08 14:38:39,722 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-12-08 14:38:39,723 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-12-08 14:38:39,726 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\zacha\OneDrive\Documents\MyWorkspace\FrontEndMVC\src\test\resources
