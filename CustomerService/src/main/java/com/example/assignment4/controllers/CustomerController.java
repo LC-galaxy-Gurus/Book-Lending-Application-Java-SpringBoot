@@ -5,9 +5,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.assignment4.models.CustomerModel;
 import com.example.assignment4.services.CustomerService;
-
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:8080") 
 @RestController
 @RequestMapping("/customers")
 public class CustomerController {

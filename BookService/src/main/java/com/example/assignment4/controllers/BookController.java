@@ -7,6 +7,7 @@ import com.example.assignment4.models.BookModel;
 import com.example.assignment4.services.BookService;
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:8080") 
 @RestController
 @RequestMapping("/books")
 public class BookController {

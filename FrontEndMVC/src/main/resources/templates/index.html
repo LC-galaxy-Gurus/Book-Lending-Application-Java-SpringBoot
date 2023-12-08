@@ -4,152 +4,366 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Management System</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #0056b3;
+            --background-color: #f0f4f7;
+            --text-color: #333;
+            --box-background-color: #ffffff;
+            --border-color: #ced4da;
+        }
         body {
-            background-color: #f0f4f7;
-            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
         .container {
+            width: 100%;
             max-width: 600px;
-            margin: 0 auto;
             padding: 20px;
-            background-color: #ffffff;
+            background-color: var(--box-background-color);
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #333;
+        h1, h5 {
+            color: var(--text-color);
         }
         .card {
-            border: none;
-            margin-bottom: 20px;
+            background: var(--box-background-color);
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
         }
-
-        .form-control, .form-select {
-            width: 96%;
-            border: 1px solid #ccc;
+        .form-control {
+            border: 1px solid var(--border-color);
             padding: 10px;
             border-radius: 5px;
             transition: border-color 0.3s;
         }
-
-        .form-control:hover, .btn:hover {
-            border-color: #007bff;
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
         }
-        
         .btn {
-            width: 100%;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
             padding: 10px;
             border-radius: 5px;
+            border: none;
+            color: white;
+            background-color: var(--primary-color);
+            cursor: pointer;
             transition: background-color 0.3s;
         }
         .btn:hover {
-            background-color: #0056b3;
+            background-color: var(--secondary-color);
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            .form-control {
+                padding: 8px;
+            }
+        }
+        /* Style for the tables */
+        .table-container {
+            margin-top: 30px;
+            background-color: var(--box-background-color);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        td {
+            background-color: var(--box-background-color);
+            color: var(--text-color);
+        }
+        @media (max-width: 768px) {
+            table {
+                font-size: 0.9em;
+            }
+            th, td {
+                padding: 6px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container mt-5">
+    <div class="container">
         <h1>Library Management System</h1>
+        
+        <!-- Add Book Form -->
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Add a Book</h5>
-                <form>
+                <form id="bookForm">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="bookTitle" placeholder="Book Title">
+                        <label for="bookTitle">Book Title</label>
+                        <input type="text" class="form-control" id="bookTitle" placeholder="Book Title" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="authorFirstName" placeholder="Author First Name">
+                        <label for="authorFirstName">Author First Name</label>
+                        <input type="text" class="form-control" id="authorFirstName" placeholder="Author First Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="authorLastName" placeholder="Author Last Name">
+                        <label for="authorLastName">Author Last Name</label>
+                        <input type="text" class="form-control" id="authorLastName" placeholder="Author Last Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="number" class="form-control" id="rating" placeholder="Rating">
+                        <label for="rating">Rating</label>
+                        <input type="number" class="form-control" id="rating" placeholder="Rating" required min="1" max="5">
                     </div>
-                    <button type="submit" class="btn">Add Book</button>
+                    <button type="button" class="btn" onclick="addBook()">Add Book</button>
                 </form>
             </div>
         </div>
+        
+        <!-- Add Customer Form -->
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Add a Customer</h5>
-                <form>
+                <form id="customerForm">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                        <label for="firstName">First Name</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="address" placeholder="Address">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" placeholder="Address" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="phone" placeholder="Phone">
+                        <label for="phone">Phone</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="Phone" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="emailId" placeholder="Email">
+                        <label for="emailId">Email</label>
+                        <input type="email" class="form-control" id="emailId" placeholder="Email" required>
                     </div>
-                    <button type="submit" class="btn">Add Customer</button>
+                    <button type="button" class="btn" onclick="addCustomer()">Add Customer</button>
                 </form>
             </div>
         </div>
+
+        <!-- Add Transaction Form -->
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Add a Transaction</h5>
-                <form>
+                <form id="transactionForm">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="customerId" placeholder="Customer ID">
+                        <label for="customerId">Customer ID</label>
+                        <input type="number" class="form-control" id="customerId" placeholder="Customer ID" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="bookId" placeholder="Book ID">
+                        <label for="bookId">Book ID</label>
+                        <input type="number" class="form-control" id="bookId" placeholder="Book ID" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="trxnDate" placeholder="Transaction Date">
+                        <label for="trxnDate">Transaction Date</label>
+                        <input type="date" class="form-control" id="trxnDate" placeholder="Transaction Date" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="trxnType" placeholder="Transaction Type">
+                        <label for="trxnType">Transaction Type</label>
+                        <select class="form-control" id="trxnType" required>
+                            <option value="" disabled selected>Select Transaction Type</option>
+                            <option value="borrow">Borrow</option>
+                            <option value="return">Return</option>
+                        </select>
                     </div>
-                    <button type="submit" class="btn">Add Transaction</button>
+                    <button type="button" class="btn" onclick="addTransaction()">Add Transaction</button>
                 </form>
             </div>
         </div>
+        <div class="table-container">
+            <h5>Books</h5>
+            <table id="booksTable">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author First Name</th>
+                        <th>Author Last Name</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Book data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Table for Customers -->
+        <div class="table-container">
+            <h5>Customers</h5>
+            <table id="customersTable">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Customer data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Table for Transactions -->
+        <div class="table-container">
+            <h5>Transactions</h5>
+            <table id="transactionsTable">
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Customer ID</th>
+                        <th>Book ID</th>
+                        <th>Transaction Date</th>
+                        <th>Transaction Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Transaction data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.min.js"></script>
-	<script>
-	    // Function to add a book
-	    function addBook() {
-	        const bookData = {
-	            bookTitle: document.getElementById("bookTitle").value,
-	            authorFirstName: document.getElementById("authorFirstName").value,
-	            authorLastName: document.getElementById("authorLastName").value,
-	            rating: document.getElementById("rating").value
-	        };
-	
-	        // Make a POST request to the API running on port 8081
-	        axios.post('http://localhost:8081/addBook', bookData)
-	            .then(response => {
-	                // Handle a successful response (e.g., show a success message)
-	                console.log('Book added successfully:', response.data);
-	            })
-	            .catch(error => {
-	                // Handle errors (e.g., show an error message)
-	                console.error('Error adding book:', error);
-	            });
-	    }
-	</script>
+    </div>
+
+    <script>
+        // Function to add a book
+        function addBook() {
+            const bookForm = document.getElementById('bookForm');
+            if (bookForm.checkValidity()) {
+                const bookData = {
+                    title: document.getElementById("bookTitle").value,
+                    authorFirstName: document.getElementById("authorFirstName").value,
+                    authorLastName: document.getElementById("authorLastName").value,
+                    rating: parseInt(document.getElementById("rating").value)
+                };
+
+                // Make a POST request to the API running on port 8081
+                axios.post('http://localhost:8081/books/addBook', bookData)
+                    .then(response => {
+                        console.log('Book added successfully:', response.data);
+                        alert('Book added successfully!');
+                        bookForm.reset(); 
+                    })
+                    .catch(error => {
+                        console.error('Error adding book:', error);
+                        alert('Error adding book. Check console for details.');
+                    });
+            }
+        }
+        // Function to add a customer
+        function addCustomer() {
+            const customerData = {
+                firstName: document.getElementById("firstName").value,
+                lastName: document.getElementById("lastName").value,
+                address: document.getElementById("address").value,
+                phone: document.getElementById("phone").value,
+                emailId: document.getElementById("emailId").value
+            };
+            
+            // Make a POST request to the API running on port 8081
+            axios.post('http://localhost:8081/customers/addCustomer', customerData)
+                .then(response => {
+                    console.log('Customer added successfully:', response.data);
+                    alert('Customer added successfully!');
+                    document.getElementById("customerForm").reset();
+                })
+                .catch(error => {
+                    console.error('Error adding customer:', error);
+                    alert('Error adding customer. Check console for details.');
+                });
+        }
+        // Function to add a transaction
+		function addTransaction() {
+		    const transactionData = {
+		        customerId: parseInt(document.getElementById("customerId").value),
+		        bookId: parseInt(document.getElementById("bookId").value),
+		        trxnDate: document.getElementById("trxnDate").value,
+		        trxnType: document.getElementById("trxnType").value
+		    };
+		
+		    axios.post('http://localhost:8081/transactions/addTransaction', transactionData)
+		        .then(response => {
+		            console.log('Transaction added successfully:', response.data);
+		            alert('Transaction added successfully!');
+		            document.getElementById("transactionForm").reset();
+		        })
+		        .catch(error => {
+		            console.error('Error adding transaction:', error);
+		            alert('Error adding transaction. Check console for details.');
+		        });
+		}
+		//Loading Book Table
+		document.addEventListener("DOMContentLoaded", () => {
+		    fetchBooks();
+		});
+		
+		function fetchBooks() {
+		    axios.get('http://localhost:8081/books')
+		        .then(response => {
+		            const books = response.data;
+		            populateBooksTable(books);
+		        })
+		        .catch(error => {
+		            console.error('Error fetching books:', error);
+		            // Handle error or show notification
+		        });
+		}
+		
+		function populateBooksTable(books) {
+		    const booksTable = document.getElementById('booksTable').getElementsByTagName('tbody')[0];
+		    booksTable.innerHTML = ''; // Clear existing table data
+		
+		    books.forEach(book => {
+		        let row = booksTable.insertRow();
+		        let titleCell = row.insertCell(0);
+		        let authorFirstNameCell = row.insertCell(1);
+		        let authorLastNameCell = row.insertCell(2);
+		        let ratingCell = row.insertCell(3);
+		
+		        titleCell.textContent = book.title;
+		        authorFirstNameCell.textContent = book.authorFirstName;
+		        authorLastNameCell.textContent = book.authorLastName;
+		        ratingCell.textContent = book.rating;
+		    });
+		}
+    </script>
 </body>
 </html>
+
 
 
