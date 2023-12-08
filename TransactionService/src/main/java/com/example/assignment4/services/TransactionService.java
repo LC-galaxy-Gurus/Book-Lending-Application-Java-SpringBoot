@@ -1,10 +1,11 @@
-package Services;
+package com.example.assignment4.services;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import Models.TransactionModel;
-import Repositories.TransactionRepository;
+import com.example.assignment4.models.TransactionModel;
+import com.example.assignment4.repositories.TransactionRepository;
+
 
 @Service
 public class TransactionService 

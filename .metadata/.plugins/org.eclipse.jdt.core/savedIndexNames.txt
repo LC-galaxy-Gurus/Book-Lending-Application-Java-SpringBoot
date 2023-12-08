@@ -44,7 +44,6 @@ INDEX VERSION 1.134+C:\Users\zacha\OneDrive\Documents\MyWorkspace\.metadata\.plu
 1445948175.index
 1907276247.index
 1842964649.index
-4290269146.index
 3251057072.index
 3753598266.index
 1314183416.index

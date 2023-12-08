@@ -1,10 +1,10 @@
-package Controllers;
+package com.example.assignment4.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import Models.BookModel;
-import Services.BookService;
+import com.example.assignment4.models.BookModel;
+import com.example.assignment4.services.BookService;
 import java.util.List;
 
 @RestController
@@ -27,7 +27,7 @@ public class BookController {
         return book != null ? ResponseEntity.ok(book) : ResponseEntity.notFound().build();
     }
 
-    @PostMapping
+    @PostMapping("/addBook")
     public ResponseEntity<BookModel> addBook(@RequestBody BookModel book) 
     {
         BookModel newBook = bookService.saveBook(book);

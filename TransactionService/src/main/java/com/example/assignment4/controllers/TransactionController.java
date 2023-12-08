@@ -1,10 +1,10 @@
-package Controllers;
+package com.example.assignment4.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import Models.TransactionModel;
-import Services.TransactionService;
+import com.example.assignment4.models.TransactionModel;
+import com.example.assignment4.services.TransactionService;
 
 import java.util.List;
 

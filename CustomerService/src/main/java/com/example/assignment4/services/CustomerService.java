@@ -1,10 +1,10 @@
-package Services;
+package com.example.assignment4.services;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import Models.CustomerModel;
-import Repositories.CustomerRepository;
+import com.example.assignment4.models.CustomerModel;
+import com.example.assignment4.repositories.CustomerRepository;
 
 @Service
 public class CustomerService 

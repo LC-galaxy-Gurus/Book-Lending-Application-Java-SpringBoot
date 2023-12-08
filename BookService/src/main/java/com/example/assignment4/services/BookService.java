@@ -1,10 +1,9 @@
-package Services;
+package com.example.assignment4.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import Models.BookModel;
-import Repositories.BookRepository;
-
+import com.example.assignment4.models.BookModel;
+import com.example.assignment4.repositories.BookRepository;
 import java.util.List;
 
 @Service
