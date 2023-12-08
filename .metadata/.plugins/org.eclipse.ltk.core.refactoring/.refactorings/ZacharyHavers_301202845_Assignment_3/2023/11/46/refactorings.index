@@ -1,0 +1,18 @@
+1699910579994	Delete element
+1699910582929	Delete element
+1699910588638	Delete element
+1699910591822	Delete element
+1699910594976	Delete element
+1699911128803	Delete element
+1699916431666	Delete element
+1699916438905	Delete element
+1699919610041	Rename type 'CustomerInterface'
+1699987155434	Move 'Customer.java' to 'Model'
+1699987216170	Move 'CustomerController.java' to 'Cotnroller'
+1699987218401	Move 'CustomerRepository.java' to 'Repository'
+1699987220240	Move 'CustomerService.java' to 'Service'
+1699987241606	Rename resource 'Cotnroller'
+1699987715904	Delete element
+1699988138708	Delete element
+1699988753778	Rename resource 'register.html'
+1700166920819	Delete element

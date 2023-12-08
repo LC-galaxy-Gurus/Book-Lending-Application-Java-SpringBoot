@@ -1,0 +1,21 @@
+package com.example.assignment4.Services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.example.assignment4.Models.BookModel;
+import com.example.assignment4.Repositories.BookRepository;
+import java.util.List;
+
+@Service
+public class BookService {
+
+    @Autowired
+    private BookRepository bookRepository;
+
+    public List<BookModel> getAllBooks() {
+        return bookRepository.findAll();
+    }
+
+
+}
+
