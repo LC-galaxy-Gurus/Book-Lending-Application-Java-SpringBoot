@@ -28,7 +28,7 @@ public class TransactionController {
         return transaction != null ? ResponseEntity.ok(transaction) : ResponseEntity.notFound().build();
     }
 
-    @PostMapping
+    @PostMapping("/addTransaction")
     public ResponseEntity<TransactionModel> addTransaction(@RequestBody TransactionModel transaction) 
     {
         TransactionModel newTransaction = transactionService.saveTransaction(transaction);

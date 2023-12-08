@@ -28,7 +28,7 @@ public class CustomerController {
         return customer != null ? ResponseEntity.ok(customer) : ResponseEntity.notFound().build();
     }
 
-    @PostMapping
+    @PostMapping("/addCustomer")
     public ResponseEntity<CustomerModel> addCustomer(@RequestBody CustomerModel customer) 
     {
         CustomerModel newCustomer = customerService.saveCustomer(customer);
