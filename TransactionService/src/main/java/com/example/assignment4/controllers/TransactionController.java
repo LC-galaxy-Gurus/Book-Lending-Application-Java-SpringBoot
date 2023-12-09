@@ -44,7 +44,7 @@ public class TransactionController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteBook(@PathVariable int id) 
+    public ResponseEntity<Void> deleteTransaction(@PathVariable int id) 
     {
         transactionService.deleteTransaction(id);
         return ResponseEntity.ok().build();

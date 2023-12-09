@@ -115,7 +115,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Library Management System</h1>
+        <h1>Library Management App</h1>
         
         <!-- Add Book Form -->
         <div class="card">
@@ -139,7 +139,6 @@
                         <input type="number" class="form-control" id="rating" placeholder="Rating" required min="1" max="5">
                     </div>
                     <button type="button" class="btn" onclick="addBook()">Add Book</button>
-                    <button type="button" class="btn" onclick="deleteBook(bookId)">Delete</button>
                 </form>
             </div>
         </div>
@@ -170,7 +169,6 @@
                         <input type="email" class="form-control" id="emailId" placeholder="Email" required>
                     </div>
                     <button type="button" class="btn" onclick="addCustomer()">Add Customer</button>
-                    <button type="button" class="btn" onclick="deleteCustomer(customerId)">Delete</button>
                 </form>
             </div>
         </div>
@@ -201,7 +199,6 @@
                         </select>
                     </div>
                     <button type="button" class="btn" onclick="addTransaction()">Add Transaction</button>
-                    <button type="button" class="btn" onclick="deleteTransaction(transactionId)">Delete</button>
                 </form>
             </div>
         </div>
@@ -214,6 +211,7 @@
                         <th>Author First Name</th>
                         <th>Author Last Name</th>
                         <th>Rating</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -228,11 +226,13 @@
             <table id="customersTable">
                 <thead>
                     <tr>
+						<th>Customer ID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Address</th>
                         <th>Phone</th>
                         <th>Email</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -252,6 +252,7 @@
                         <th>Book ID</th>
                         <th>Transaction Date</th>
                         <th>Transaction Type</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -409,32 +410,49 @@
 		        let authorFirstNameCell = row.insertCell(1);
 		        let authorLastNameCell = row.insertCell(2);
 		        let ratingCell = row.insertCell(3);
+		        let deleteCell = row.insertCell(4);
 		
 		        titleCell.textContent = book.title;
 		        authorFirstNameCell.textContent = book.authorFirstName;
 		        authorLastNameCell.textContent = book.authorLastName;
 		        ratingCell.textContent = book.rating;
+		
+		        let deleteButton = document.createElement('button');
+		        deleteButton.textContent = 'Delete';
+		        deleteButton.className = 'btn';
+		        deleteButton.onclick = function() { deleteBook(book.bookId); };
+		        deleteCell.appendChild(deleteButton);
 		    });
 		}
 		
 		//Populate Customers Table
 		function populateCustomersTable(customers) {
+			console.log(customers);
 		    const customersTable = document.getElementById('customersTable').getElementsByTagName('tbody')[0];
 		    customersTable.innerHTML = ''; 
 		
 		    customers.forEach(customer => {
 		        let row = customersTable.insertRow();
-		        let firstNameCell = row.insertCell(0);
-		        let lastNameCell = row.insertCell(1);
-		        let addressCell = row.insertCell(2);
-		        let phoneCell = row.insertCell(3);
-		        let emailIdCell = row.insertCell(4);
-		
+		        let fCustomerIdCell = row.insertCell(0)
+		        let firstNameCell = row.insertCell(1);
+		        let lastNameCell = row.insertCell(2);
+		        let addressCell = row.insertCell(3);
+		        let phoneCell = row.insertCell(4);
+		        let emailIdCell = row.insertCell(5);
+		        let deleteCell = row.insertCell(6);
+				
+				fCustomerIdCell.textContent = customer.fcustomerId;
 		        firstNameCell.textContent = customer.firstName;
 		        lastNameCell.textContent = customer.lastName;
 		        addressCell.textContent = customer.address;
 		        phoneCell.textContent = customer.phone;
 		        emailIdCell.textContent = customer.emailId
+		        
+		        let deleteButton = document.createElement('button');
+		        deleteButton.textContent = 'Delete';
+		        deleteButton.className = 'btn';
+		        deleteButton.onclick = function() { deleteCustomer(customer.fcustomerId); };
+		        deleteCell.appendChild(deleteButton);
 		    });
 		}
 		
@@ -450,12 +468,19 @@
 		        let bookIdCell = row.insertCell(2);
 		        let trxnDateCell = row.insertCell(3);
 		        let trxnTypeCell = row.insertCell(4);
+		        let deleteCell = row.insertCell(5);
 				
 				transactionIdCell.textContent = transaction.transactionId;
 		        customerIdCell.textContent = transaction.customerId;
 		        bookIdCell.textContent = transaction.bookId;
 		        trxnDateCell.textContent = transaction.trxnDate;
 		        trxnTypeCell.textContent = transaction.trxnType;
+		        
+		        let deleteButton = document.createElement('button');
+		        deleteButton.textContent = 'Delete';
+		        deleteButton.className = 'btn';
+		        deleteButton.onclick = function() { deleteTransaction(transaction.transactionId); };
+		        deleteCell.appendChild(deleteButton);
 		    });
 		}
     </script>
