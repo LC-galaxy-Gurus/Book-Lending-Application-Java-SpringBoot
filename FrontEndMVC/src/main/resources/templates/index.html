@@ -77,7 +77,6 @@
                 padding: 8px;
             }
         }
-        /* Style for the tables */
         .table-container {
             margin-top: 30px;
             background-color: var(--box-background-color);
@@ -140,6 +139,7 @@
                         <input type="number" class="form-control" id="rating" placeholder="Rating" required min="1" max="5">
                     </div>
                     <button type="button" class="btn" onclick="addBook()">Add Book</button>
+                    <button type="button" class="btn" onclick="deleteBook(bookId)">Delete</button>
                 </form>
             </div>
         </div>
@@ -170,6 +170,7 @@
                         <input type="email" class="form-control" id="emailId" placeholder="Email" required>
                     </div>
                     <button type="button" class="btn" onclick="addCustomer()">Add Customer</button>
+                    <button type="button" class="btn" onclick="deleteCustomer(customerId)">Delete</button>
                 </form>
             </div>
         </div>
@@ -200,6 +201,7 @@
                         </select>
                     </div>
                     <button type="button" class="btn" onclick="addTransaction()">Add Transaction</button>
+                    <button type="button" class="btn" onclick="deleteTransaction(transactionId)">Delete</button>
                 </form>
             </div>
         </div>
@@ -215,7 +217,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Book data will be inserted here -->
+                    <!-- Book Data -->
                 </tbody>
             </table>
         </div>
@@ -234,7 +236,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Customer data will be inserted here -->
+                    <!-- Customer Data -->
                 </tbody>
             </table>
         </div>
@@ -253,7 +255,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Transaction data will be inserted here -->
+                    <!-- Transaction Data -->
                 </tbody>
             </table>
         </div>
@@ -261,6 +263,7 @@
     </div>
 
     <script>
+		
         // Function to add a book
         function addBook() {
             const bookForm = document.getElementById('bookForm');
@@ -272,7 +275,6 @@
                     rating: parseInt(document.getElementById("rating").value)
                 };
 
-                // Make a POST request to the API running on port 8081
                 axios.post('http://localhost:8081/books/addBook', bookData)
                     .then(response => {
                         console.log('Book added successfully:', response.data);
@@ -285,6 +287,7 @@
                     });
             }
         }
+        
         // Function to add a customer
         function addCustomer() {
             const customerData = {
@@ -295,7 +298,6 @@
                 emailId: document.getElementById("emailId").value
             };
             
-            // Make a POST request to the API running on port 8082
             axios.post('http://localhost:8082/customers/addCustomer', customerData)
                 .then(response => {
                     console.log('Customer added successfully:', response.data);
@@ -307,6 +309,7 @@
                     alert('Error adding customer. Check console for details.');
                 });
         }
+        
         // Function to add a transaction
 		function addTransaction() {
 		    const transactionData = {
@@ -327,13 +330,45 @@
 		            alert('Error adding transaction. Check console for details.');
 		        });
 		}
-		//Loading Book Table
+		
+		//Function To Delete Book
+		function deleteBook(bookId) {
+		    axios.delete(`http://localhost:8081/books/${bookId}`)
+		        .then(() => {
+		            console.log('Book deleted successfully');
+		            fetchBooks();
+		        })
+		        .catch(error => console.error('Error deleting book:', error));
+		}
+		
+		//Function To Delete Customer
+		function deleteCustomer(customerId) {
+		    axios.delete(`http://localhost:8082/customers/${customerId}`)
+		        .then(() => {
+		            console.log('Customer deleted successfully');
+		            fetchBooks();
+		        })
+		        .catch(error => console.error('Error deleting customer:', error));
+		}
+		
+		//Function To Delete Transaction
+		function deleteTransaction(transactionId) {
+		    axios.delete(`http://localhost:8083/transactions/${transactionId}`)
+		        .then(() => {
+		            console.log('Transaction deleted successfully');
+		            fetchBooks();
+		        })
+		        .catch(error => console.error('Error deleting transaction:', error));
+		}
+		
+		//Loading Tables When Page Opens Or Refreshes
 		document.addEventListener("DOMContentLoaded", () => {
 		    fetchBooks();
 		    fetchCustomers();
 		    fetchTransactions();
 		});
 		
+		//Fetch Books
 		function fetchBooks() {
 		    axios.get('http://localhost:8081/books')
 		        .then(response => {
@@ -342,10 +377,10 @@
 		        })
 		        .catch(error => {
 		            console.error('Error fetching books:', error);
-		            // Handle error or show notification
 		        });
 		}
-		//Fetch Customers And Transactions
+		
+		//Fetch Customers 
 		function fetchCustomers() {
 		    axios.get('http://localhost:8082/customers')
 		        .then(response => {
@@ -354,6 +389,7 @@
 		        .catch(error => console.error('Error fetching customers:', error));
 		}
 		
+		//Fetch Transactions
 		function fetchTransactions() {
 		    axios.get('http://localhost:8083/transactions')
 		        .then(response => {
@@ -361,10 +397,11 @@
 		        })
 		        .catch(error => console.error('Error fetching transactions:', error));
 		}
+		
 		//Populate Book table
 		function populateBooksTable(books) {
 		    const booksTable = document.getElementById('booksTable').getElementsByTagName('tbody')[0];
-		    booksTable.innerHTML = ''; // Clear existing table data
+		    booksTable.innerHTML = ''; 
 		
 		    books.forEach(book => {
 		        let row = booksTable.insertRow();
@@ -379,9 +416,11 @@
 		        ratingCell.textContent = book.rating;
 		    });
 		}
+		
+		//Populate Customers Table
 		function populateCustomersTable(customers) {
 		    const customersTable = document.getElementById('customersTable').getElementsByTagName('tbody')[0];
-		    customersTable.innerHTML = ''; // Clear existing table data
+		    customersTable.innerHTML = ''; 
 		
 		    customers.forEach(customer => {
 		        let row = customersTable.insertRow();
@@ -399,9 +438,10 @@
 		    });
 		}
 		
+		//Populate Transactions Table
 		function populateTransactionsTable(transactions) {
 		    const transactionsTable = document.getElementById('transactionsTable').getElementsByTagName('tbody')[0];
-		    transactionsTable.innerHTML = ''; // Clear existing table data
+		    transactionsTable.innerHTML = ''; 
 		
 		    transactions.forEach(transaction => {
 		        let row = transactionsTable.insertRow();
