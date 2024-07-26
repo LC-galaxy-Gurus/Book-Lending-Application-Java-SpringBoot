@@ -3,10 +3,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.springframework.boot</groupId>
+		<!--<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.2.0</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/> --><!-- lookup parent from repository -->
+		<groupId>groupId</groupId>
+		<artifactId>Book-Lending-Application-Java-SpringBoot</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.eureka</groupId>
 	<artifactId>EurekaServer</artifactId>
@@ -15,9 +19,18 @@
 	<description>Assignment 4</description>
 	<properties>
 		<java.version>17</java.version>
-		<spring-cloud.version>2023.0.0</spring-cloud.version>
+		 <spring-cloud.version>2023.0.0</spring-cloud.version>
+		<!--<spring-cloud.version>Hoxton.SR3</spring-cloud.version>-->
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+	<!--	<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+		</dependency> -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
@@ -26,11 +39,22 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
