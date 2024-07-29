@@ -30,7 +30,7 @@ public class BookController {
 
     @PostMapping("/addBook")
     public ResponseEntity<BookModel> addBook(@RequestBody BookModel book) 
-    {
+    {mvn
         BookModel newBook = bookService.saveBook(book);
         return ResponseEntity.ok(newBook);
     }
@@ -49,6 +49,14 @@ public class BookController {
         bookService.deleteBook(id);
         return ResponseEntity.ok().build();
     }
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteBook(@PathVariable int id) {
+        try {
+            bookService.deleteBook(id);
+            return ResponseEntity.ok().build();
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build(); // Handle resource not found
+        }
+    }
 
 }
