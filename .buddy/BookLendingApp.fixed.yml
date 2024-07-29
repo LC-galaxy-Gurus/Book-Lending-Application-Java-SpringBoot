@@ -1,0 +1,8 @@
+- pipeline: "BookLendingApp"
+  events:
+  - type: "PUSH"
+    refs:
+    - "refs/heads/patch01"
+    - "refs/heads/main"
+    - ":default"
+  fail_on_prepare_env_warning: true
