@@ -27,4 +27,6 @@
     integration: "Snyk"
     execute_commands:
     - "snyk test"
+    setup_commands:
+    - "apt-get update && apt-get -y install git"
     shell: "BASH"
