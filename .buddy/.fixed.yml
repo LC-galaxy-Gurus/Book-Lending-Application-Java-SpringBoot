@@ -4,3 +4,9 @@
     refs:
     - "refs/heads/main"
   fail_on_prepare_env_warning: true
+  actions:
+  - action: "jmeter -n -t test.jmx -l testresults.jtl"
+    type: "JMETER_CLI"
+    execute_commands:
+    - "jmeter -n -t test.jmx -l testresults.jtl"
+    shell: "BASH"
