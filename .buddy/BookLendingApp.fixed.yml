@@ -21,3 +21,10 @@
     target_branch: "$BUDDY_EXECUTION_BRANCH"
     push_url: "https://github.com/LC-galaxy-Gurus/Book-Lending-Application-Java-SpringBoot.git"
     comment: "$BUDDY_EXECUTION_ID"
+  - action: "snyk test"
+    type: "SNYK_CLI"
+    version: "node-16"
+    integration: "Snyk"
+    execute_commands:
+    - "snyk test"
+    shell: "BASH"
