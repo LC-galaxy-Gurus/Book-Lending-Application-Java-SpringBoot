@@ -63,6 +63,11 @@ public class BookController {
         }
     }
 
+    @GetMapping("/greeting")
+    public String greeting(@RequestParam(value="name") String name) {
+        return "Hello, " + name + "!";
+    }
+
     @PostMapping("/addBook")
     public ResponseEntity<BookModel> addBook(@RequestBody BookModel book) 
     {
