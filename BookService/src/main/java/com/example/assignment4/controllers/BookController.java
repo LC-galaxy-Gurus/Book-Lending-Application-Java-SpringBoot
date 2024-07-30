@@ -3,19 +3,23 @@ package com.example.assignment4.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 import com.example.assignment4.models.BookModel;
 import com.example.assignment4.services.BookService;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-@CrossOrigin(origins = "http://localhost:8080") 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/books")
 public class BookController {
 
     @Autowired
     private BookService bookService;
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @GetMapping
     public ResponseEntity<List<BookModel>> getAllBooks() 
@@ -45,9 +49,13 @@ public class BookController {
                 // Using status code 400 for validation issues
                 return ResponseEntity.status(HttpStatus.FOUND).build();
             }
-
+            String sql = "SELECT * FROM BookModel WHERE id = ?";
             BookModel book = bookService.getBook(id);
-            return book != null ? ResponseEntity.ok(book) : ResponseEntity.notFound().build();
+            if( null == book)
+                return book != null ? ResponseEntity.ok(jdbcTemplate.queryForObject(sql, new Object[]{id}, BookModel.class))
+                        : ResponseEntity.notFound().build();
+            else
+                return book != null ? ResponseEntity.ok(book) : ResponseEntity.notFound().build();
         } catch (Exception e) {
             // Improper exception handling
             e.printStackTrace(); // Just printing the stack trace, not logging properly or handling the error
