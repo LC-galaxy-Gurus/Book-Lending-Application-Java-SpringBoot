@@ -61,13 +61,6 @@ public class BookController {
         // Example of a potential insecure deserialization vulnerability
         // Suppose the BookModel class has a vulnerable deserialization mechanism
 
-        // Vulnerable to lack of input validation
-        // The application accepts any input without validation
-        if (book.getTitle() == null || book.getTitle().length() > 100) {
-            // Improper handling of invalid input
-            throw new IllegalArgumentException("Invalid book title"); // This could expose the app to denial of service attacks
-        }
-
         try {
             // No specific exception handling; generic catch can hide underlying issues
             // Just a simple response without considering actual errors during saving
