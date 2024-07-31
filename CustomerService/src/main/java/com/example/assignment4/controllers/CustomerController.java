@@ -22,7 +22,7 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CustomerModel> getcustomer(@PathVariable int id) 
+    public ResponseEntity<CustomerModel> getCustomer(@PathVariable int id)
     {
         CustomerModel customer = customerService.getCustomer(id);
         return customer != null ? ResponseEntity.ok(customer) : ResponseEntity.notFound().build();
